@@ -12,6 +12,7 @@
 #' @param name Un nombre, opcional, para el color
 #' @examples
 #' color_transparente("#11aaff", 25) #-> "#11AAFFBF"
+#' @export
 color_transparente <- function(color, percent = 50, name = NULL) {
   #	  color = color name
   #	percent = % transparency
@@ -37,13 +38,10 @@ color_transparente <- function(color, percent = 50, name = NULL) {
 #' @param columna Coordenada de la columna de la celda en que situar el título
 #' @param texto Texto del título. Si es nulo, no se establece el texto, sólo se cambia el formato.
 #' @param estilo Estilo en que irá el título.
-#' @examples crearTituloExcel(hoja = sheet, fila = 2, columna = 2, estilo = TITLE_STYLE)  #-> ### Crea un título formateado en la celda B2
+#' @examples crearTituloExcel(hoja = sheet, fila = 2, columna = 2, estilo = TITLE_STYLE)
+#' #-> ### Crea un título formateado en la celda B2
+#' @export
 crearTituloExcel <- function(hoja, fila, columna, texto, estilo){
-  # require(xlsx)
-  # rows <- createRow(sheet = hoja,rowIndex = fila)
-  # sheetTitle <- createCell(rows,colIndex = columna)
-  # setCellValue(sheetTitle[[1,1]], texto)
-  # setCellStyle(sheetTitle[[1,1]],estilo)
 
   row <- getRows(sheet = hoja, rowIndex = fila)
   if(is.null(row) | length(row) == 0){
@@ -53,7 +51,6 @@ crearTituloExcel <- function(hoja, fila, columna, texto, estilo){
   if(is.null(celda)) celda <- createCell(row,colIndex = columna)
   if(!is.null(texto)) setCellValue(celda[[1]], texto)
   setCellStyle(celda[[1]], estilo)
-  # ####crearTituloExcel(sheet,2,2,"Estadísticas básicas", TITLE_STYLE)
 }
 
 #' modificarEstiloTituloExcel
@@ -65,7 +62,9 @@ crearTituloExcel <- function(hoja, fila, columna, texto, estilo){
 #' @param columnas Coordenadas de las columnas que se deben modificar.
 #' @param estiloFilas Estilo que se aplicará a las filas.
 #' @param estiloColumnas Estilo que se aplicará a las columnas.
-#' @examples modificarEstiloTituloExcel(sheet,2:5, 2:8,TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE) #-> ### Crea un título en la primer fila y columna de la tabla 2,2 a 5,8
+#' @examples modificarEstiloTituloExcel(sheet,2:5, 2:8,TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE)
+#' #-> ### Crea un título en la primer fila y columna de la tabla 2,2 a 5,8
+#' @export
 modificarEstiloTituloExcel <- function(hoja, filas, columnas,estiloFilas, estiloColumnas){
   if(length(filas) != 1){
     for(x in filas){
@@ -89,9 +88,9 @@ modificarEstiloTituloExcel <- function(hoja, filas, columnas,estiloFilas, estilo
 #' @return Una cadena con la IP asignada al ordenador
 #' @examples cualEsMiIP() #-> "193.146.96.2"
 #' @seealso \url{https://www.ipify.org/}
+#' @export
 cualEsMiIP <- function(){
-  # require("curl")
-  ip <- rawToChar(curl_fetch_memory("https://api.ipify.org?format=json")$content)
+  ip <- rawToChar(curl::curl_fetch_memory("https://api.ipify.org?format=json")$content)
   return(jsonlite::fromJSON(ip)$ip)
 }
 
@@ -104,7 +103,8 @@ cualEsMiIP <- function(){
 #' @param nombre_fichero El nombre del fichero con que se guardarán los datos.
 #' @return nada
 #' @examples
-#'    guardar_tsv_utf8_con_bom(datos, "datos.tsv")) | Produce:
+#'    guardar_tsv_utf8_con_bom(datos, "datos.tsv")
+#' @export
 guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero){
   BOM <- charToRaw('\xEF\xBB\xBF')
   con<-file(nombre_fichero,encoding="UTF-8", "wb")
@@ -121,6 +121,7 @@ guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero){
 #' Cierra todas la conexiónes con servidores Mysql activas
 #' @author Jose Alejandro Morán Pérez
 #' @examples desconectarTodasLasBasesDeDatosMysql()
+#' @export
 desconectarTodasLasBasesDeDatosMysql <- function(){
   conexionesActivas <- dbListConnections(RMySQL::MySQL())
   for (conexion in conexionesActivas) {
@@ -140,7 +141,8 @@ desconectarTodasLasBasesDeDatosMysql <- function(){
 #' @param path El texto de la variable que se quiere convertir. Por defecto, la cadena almacenada en el portapapeles.
 #' @param copiarAPortaPapeles Indica si copiar, o no, el resultado al portapapeles. Por defecto, si.
 #' @return Una ruta compatible con R.
-#' @examples extraerRutaDeWindows()) #-> "G:/Unidades compartidas/EMPRESA/BBDD/JSON"
+#' @examples extraerRutaDeWindows() #-> "G:/Unidades compartidas/EMPRESA/BBDD/JSON"
+#' @export
 extraerRutaDeWindows <- function(path = "clipboard", copiarAPortaPapeles = TRUE) {
   y <- if (path == "clipboard") {
     readClipboard()
@@ -163,7 +165,8 @@ extraerRutaDeWindows <- function(path = "clipboard", copiarAPortaPapeles = TRUE)
 #' @author Jose Alejandro Morán Pérez
 #' @param path La ruta en formato R.
 #' @return Una ruta compatible con Windows.
-#' @examples extraerRutaDeWindows("G:/Unidades compartidas/EMPRESA/BBDD/JSON") #-> Produce: "G:\\Unidades compartidas\\EMPRESA\\BBDD\\JSON"
+#' @examples extraerRutaDeWindows("G:/Unidades compartidas/EMPRESA/BBDD/JSON")
+#' #-> Produce: "G:\\Unidades compartidas\\EMPRESA\\BBDD\\JSON"
 #' # Si se quiere elimina la doble \\ se debe imporimir este resultado con cat()
 convertirRutaDeRaFormatoWindows <- function(path = "clipboard") {
   y <- if (path == "clipboard") {
