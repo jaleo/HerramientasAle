@@ -1,0 +1,12 @@
+citHeader("Para citar este paquete usa:")
+
+citEntry(entry = "Unpublished",
+  title        = "Herramientas de Alejandro.",
+  author       = personList(as.person("Jose Alejandro Morán Pérez")),
+  year         = "2021",
+  note         = "Utilidades de uso personal. Puede que le sirvan a alguien más.",
+
+  textVersion  =
+  paste("Jose Alejandro Morán Pérez (2021).",
+        "Herramientas de alejandro")
+)
