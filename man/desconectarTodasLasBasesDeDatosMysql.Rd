@@ -10,7 +10,9 @@ desconectarTodasLasBasesDeDatosMysql()
 Cierra todas la conexiónes con servidores Mysql activas
 }
 \examples{
+ \dontrun{
 desconectarTodasLasBasesDeDatosMysql()
+}
 }
 \author{
 Jose Alejandro Morán Pérez

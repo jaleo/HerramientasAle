@@ -7,9 +7,9 @@
 insertarTitulo(titulo, nivel)
 }
 \arguments{
-\item{titulo}{El título a inserta}
+\item{titulo}{El título a inserta.}
 
-\item{nivel}{El nivel que debe tener dicho título}
+\item{nivel}{El nivel que debe tener dicho título.}
 }
 \description{
 Inserta un título para R Markdown del nivel que se necesite

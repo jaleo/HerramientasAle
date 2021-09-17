@@ -16,10 +16,12 @@ La cadena de peligro.
 Envía varios textos al registro de warnings, concatenados en una sóla linea.
 }
 \examples{
+ \dontrun{
 numero <- 47
 cuidado("Peligro: ", numero, "Seg") #-> "Peligro: 47Seg"
 # "Warning message:
 # "In cuidado("Peligro: ", numero, "Seg") : Peligro: 47Seg
+}
 }
 \author{
 Jose Alejandro Morán Pérez

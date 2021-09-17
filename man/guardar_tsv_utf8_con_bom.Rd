@@ -7,7 +7,7 @@
 guardar_tsv_utf8_con_bom(datos, nombre_fichero)
 }
 \arguments{
-\item{datos}{El conjunto de daos a guardar}
+\item{datos}{El conjunto de datos a guardar.}
 
 \item{nombre_fichero}{El nombre del fichero con que se guardarán los datos.}
 }
@@ -18,7 +18,9 @@ nada
 Guarda un dataframe con fommato de archivo .tsv codificado en UTF-8 con BOM
 }
 \examples{
+ \dontrun{
 guardar_tsv_utf8_con_bom(datos, "datos.tsv")
+}
 }
 \author{
 Jose Alejandro Morán Pérez

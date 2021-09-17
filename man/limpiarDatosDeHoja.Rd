@@ -9,7 +9,7 @@ limpiarDatosDeHoja(datos, titulos = NULL)
 \arguments{
 \item{datos}{Los datos a limpiar.}
 
-\item{titulos}{Los títulos a añadir al resultado. Si no se incluyen, se extraen de los datos}
+\item{titulos}{Los títulos a añadir al resultado. Si no se incluyen, se extraen de los datos.}
 }
 \value{
 un dataframe con los datos límpios, el título sin puntos y con, al menos, una fila y 2 columnas.

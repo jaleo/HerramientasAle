@@ -7,7 +7,7 @@
 cualEsMiIP()
 }
 \value{
-Una cadena con la IP asignada al ordenador
+Una cadena con la IP asignada al ordenador.
 }
 \description{
 Devuelve la ip actual del ordenador.

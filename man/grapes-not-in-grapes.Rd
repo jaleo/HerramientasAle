@@ -4,13 +4,13 @@
 \alias{\%!in\%}
 \title{Not in}
 \source{
-http://stackoverflow.com/questions/5831794/opposite-of-in
+\url{http://stackoverflow.com/questions/5831794/opposite-of-in}
 }
 \usage{
 x \%!in\% y
 }
 \arguments{
-\item{x}{uno de los operandos}
+\item{x}{uno de los operandos.}
 
 \item{y}{otro operando. Con quien se compara el primero.}
 }

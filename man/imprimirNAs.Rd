@@ -7,9 +7,9 @@
 imprimirNAs(datos, sustituto = "")
 }
 \arguments{
-\item{datos}{Un conjunto de datos que deben imprimir. Se esperan dataframes}
+\item{datos}{Un conjunto de datos que deben imprimir. Se esperan dataframes.}
 
-\item{sustituto}{El valor por el que se reemplazan los NA. Por defecto: vacío}
+\item{sustituto}{El valor por el que se reemplazan los NA. Por defecto: vacío.}
 }
 \description{
 Imprime un conjunto de datos sustituyendo los NA por otro valor

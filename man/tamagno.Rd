@@ -7,7 +7,7 @@
 tamagno(objeto)
 }
 \arguments{
-\item{objeto}{El objeto a evaluar}
+\item{objeto}{El objeto a evaluar.}
 }
 \value{
 El número de filas y columnas que tiene. O el número de elementos, si es una lista.

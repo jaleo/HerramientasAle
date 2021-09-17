@@ -10,12 +10,12 @@ https://www.rforexcelusers.com/how-to-mid-right-left-r/
 left(text, num_char)
 }
 \arguments{
-\item{text}{La cadena de caracteres}
+\item{text}{La cadena de caracteres.}
 
-\item{num_char}{Número de caracteres}
+\item{num_char}{Número de caracteres.}
 }
 \description{
-Extrae la parte izquierda de una cadena de caracteres
+Extrae la parte izquierda de una cadena de caracteres.
 }
 \author{
 Jose Alejandro Morán Pérez

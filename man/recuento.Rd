@@ -7,10 +7,10 @@
 recuento(tabla)
 }
 \arguments{
-\item{tabla}{Una tabla de datos medible}
+\item{tabla}{Una tabla de datos medible.}
 }
 \value{
-El número de registros en la tabla
+El número de registros en la tabla.
 }
 \description{
 Cuenta el número de filas que tiene una tabla

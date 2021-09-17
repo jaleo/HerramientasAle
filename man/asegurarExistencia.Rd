@@ -9,7 +9,7 @@ asegurarExistencia(archivo, nombre = archivo)
 \arguments{
 \item{archivo}{La ruta completa del archivo}
 
-\item{nombre}{El nombre con el que se quiere referir al archivo, si se omite se usará la ruta completa}
+\item{nombre}{El nombre con el que se quiere referir al archivo, si se omite se usará la ruta completa.}
 }
 \value{
 TRUE o FALSE según exista, o no, el archivo.
@@ -21,8 +21,10 @@ Comprueba si un archivo exixte en el sistema operativo o no.
 Si no existe, informa de ello por consola. Si existe, informa por DEBUG.
 }
 \examples{
+ \dontrun{
 asegurarExistencia(nombre_archivo_csv, "ImportanTe")
 #-> TRUE (Debug: "OK: se ha encontrado el archivo ImportanTe")
+}
 }
 \author{
 Jose Alejandro Morán Pérez

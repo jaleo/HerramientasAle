@@ -7,9 +7,9 @@
 modificarEstiloTituloExcel(hoja, filas, columnas, estiloFilas, estiloColumnas)
 }
 \arguments{
-\item{hoja}{El objeto de hoja de excel en que poner el título. Si no es una lista, no se procesan las filas}
+\item{hoja}{El objeto de hoja de excel en que poner el título. Si no es una lista, no se procesan las filas.}
 
-\item{filas}{Coordenadas de las filas que se deben modificar. Si no es una lista, no se procesan las columnas}
+\item{filas}{Coordenadas de las filas que se deben modificar. Si no es una lista, no se procesan las columnas.}
 
 \item{columnas}{Coordenadas de las columnas que se deben modificar.}
 
@@ -21,8 +21,10 @@ modificarEstiloTituloExcel(hoja, filas, columnas, estiloFilas, estiloColumnas)
 Modifica el estilo de las filas y columnas de una tabla. Esto es, de la primera fila y la primera columna de la tabla
 }
 \examples{
-modificarEstiloTituloExcel(sheet, 2:5, 2:8, TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE)
-#-> ### Crea un título en la primer fila y columna de la tabla 2,2 a 5,8
+ \dontrun{
+    modificarEstiloTituloExcel(sheet, 2:5, 2:8, TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE)
+    #-> ### Crea un título en la primer fila y columna de la tabla 2,2 a 5,8
+ }
 }
 \author{
 Jose Alejandro Morán Pérez

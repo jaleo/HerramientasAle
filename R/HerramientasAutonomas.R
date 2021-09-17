@@ -4,10 +4,10 @@
 
 #' @author Jose Alejandro Morán Pérez
 #' @title left
-#' @description Extrae la parte izquierda de una cadena de caracteres
+#' @description Extrae la parte izquierda de una cadena de caracteres.
 #' @source https://www.rforexcelusers.com/how-to-mid-right-left-r/
-#' @param text La cadena de caracteres
-#' @param num_char Número de caracteres
+#' @param text La cadena de caracteres.
+#' @param num_char Número de caracteres.
 #' @export
 left <- function(text, num_char) {
   text <- as.character(text)
@@ -20,7 +20,7 @@ left <- function(text, num_char) {
 #' @author Jose Alejandro Morán Pérez
 #' @source https://www.rforexcelusers.com/how-to-mid-right-left-r/
 #' @param text La cadena de caracteres
-#' @param start_num La posición inicial de la extracción
+#' @param start_num La posición inicial de la extracción.
 #' @param num_char Número de caracteres
 #' @export
 mid <- function(text, start_num, num_char) {
@@ -33,8 +33,8 @@ mid <- function(text, start_num, num_char) {
 #' Extrae la parte derecha de una cadena de caracteres
 #' @author Jose Alejandro Morán Pérez
 #' @source https://www.rforexcelusers.com/how-to-mid-right-left-r/
-#' @param text La cadena de caracteres
-#' @param num_char Número de caracteres
+#' @param text La cadena de caracteres.
+#' @param num_char Número de caracteres.
 #' @export
 right <- function(text, num_char) {
   text <- as.character(text)
@@ -46,8 +46,8 @@ right <- function(text, num_char) {
 #'
 #' Inserta un título para R Markdown del nivel que se necesite
 #' @author Jose Alejandro Morán Pérez
-#' @param titulo El título a inserta
-#' @param nivel El nivel que debe tener dicho título
+#' @param titulo El título a inserta.
+#' @param nivel El nivel que debe tener dicho título.
 #' @examples insertarTitulo("Título de nivel 3", 3) #-> ### Título de nivel 3
 #' @export
 insertarTitulo <- function(titulo, nivel) {
@@ -61,9 +61,9 @@ insertarTitulo <- function(titulo, nivel) {
 #'
 #' Sustituye los NA por otro valor en un conjunto de datos
 #' @author Jose Alejandro Morán Pérez
-#' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes
-#' @param sustituto El valor por el que se reemplazan los NA. Por defecto: ·
-#' @references https://stackoverflow.com/questions/19516302/do-not-print-na-when-printing-data-frame
+#' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes.
+#' @param sustituto El valor por el que se reemplazan los NA. Por defecto: ·.
+#' @references \url{https://stackoverflow.com/questions/19516302/do-not-print-na-when-printing-data-frame}
 #' @return El conjunto de datos con los NAs sustituidos.
 #' @examples
 #' ejemplo <- iris[1:2, 1:2]
@@ -91,8 +91,8 @@ sustituirNAs <- function(datos, sustituto = "·") {
 #'
 #' Imprime un conjunto de datos sustituyendo los NA por otro valor
 #' @author Jose Alejandro Morán Pérez
-#' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes
-#' @param sustituto El valor por el que se reemplazan los NA. Por defecto: vacío
+#' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes.
+#' @param sustituto El valor por el que se reemplazan los NA. Por defecto: vacío.
 #' @export
 imprimirNAs <- function(datos, sustituto = "") {
   print(sustituirNAs(datos, sustituto = sustituto))
@@ -104,8 +104,8 @@ imprimirNAs <- function(datos, sustituto = "") {
 #'
 #' Deprecado: Esta función va a ser eliminada en próximas versiones. Su nombre es demasiado genérico. Mejor usar sustituirNAs
 #' @author Jose Alejandro Morán Pérez
-#' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes
-#' @param sustituto El valor por el que se reemplazan los NA. Por defecto: ·
+#' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes.
+#' @param sustituto El valor por el que se reemplazan los NA. Por defecto: ·.
 #' @references https://stackoverflow.com/questions/19516302/do-not-print-na-when-printing-data-frame
 #' @return El conjunto de datos con los NAs sustituidos.
 #' @seealso sustituirNAs
@@ -134,8 +134,8 @@ sustituir <- function(datos, sustituto = "·") {
 #'
 #' Deprecado: Esta función va a ser eliminada en próximas versiones. Su nombre es demasiado genérico. Mejor usar imprimirNAs
 #' @author Jose Alejandro Morán Pérez
-#' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes
-#' @param sustituto El valor por el que se reemplazan los NA. Por defecto: vacío
+#' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes.
+#' @param sustituto El valor por el que se reemplazan los NA. Por defecto: vacío.
 imprimir <- function(datos, sustituto = "") {
   print(imprimirNAs(datos, sustituto = sustituto))
 }
@@ -143,8 +143,8 @@ imprimir <- function(datos, sustituto = "") {
 #' Not in
 #'
 #' Operador de contrario a \%in\%
-#' @source http://stackoverflow.com/questions/5831794/opposite-of-in
-#' @param x uno de los operandos
+#' @source \url{http://stackoverflow.com/questions/5831794/opposite-of-in}
+#' @param x uno de los operandos.
 #' @param y otro operando. Con quien se compara el primero.
 #' @export
 "%!in%" <- function(x, y) !("%in%"(x, y))
@@ -207,7 +207,8 @@ extraerFecha <- function(cadena) {
 #' @author Jose Alejandro Morán Pérez
 #' @param cadena La cadena de fecha y hora.
 #' @return La subcadena de la hora.Si el formato es incorrecto devuelve una cadena vacía y lanza un aviso.
-#' @examples extraerHora("2019-10-02 23:33:14") #-> "23:33:14"
+#' @examples
+#' extraerHora("2019-10-02 23:33:14") #-> "23:33:14"
 #' @export
 extraerHora <- function(cadena) {
   resultado <- ""
@@ -232,7 +233,8 @@ extraerHora <- function(cadena) {
 #' @author Jose Alejandro Morán Pérez
 #' @param nombreDeFichero La cadena del nombre del fichero.
 #' @return La subcadena de la extensión, o "" si no encuentra el punto..
-#' @examples getTipo("00176a223d658759746323cc1281e93d.jpg") #-> "jpg"
+#' @examples
+#' getTipo("00176a223d658759746323cc1281e93d.jpg") #-> "jpg"
 #' @export
 getTipo <- function(nombreDeFichero) {
   resultado <- ""
@@ -300,10 +302,12 @@ aDebug <- function(...) {
 #' @param ... Una o varias cadena de texto.
 #' @return La cadena de peligro.
 #' @examples
+#'  \dontrun{
 #' numero <- 47
 #' cuidado("Peligro: ", numero, "Seg") #-> "Peligro: 47Seg"
 #' # "Warning message:
 #' # "In cuidado("Peligro: ", numero, "Seg") : Peligro: 47Seg
+#' }
 #' @export
 cuidado <- function(...) {
   warning(paste0(...))
@@ -314,7 +318,7 @@ cuidado <- function(...) {
 #'
 #' Calcula el tamaño de un objeto.
 #' @author Jose Alejandro Morán Pérez
-#' @param objeto El objeto a evaluar
+#' @param objeto El objeto a evaluar.
 #' @return El número de filas y columnas que tiene. O el número de elementos, si es una lista.
 #' @examples
 #' listado <- rep("a", 256)
@@ -336,10 +340,13 @@ tamagno <- function(objeto) {
 #' Si no existe, informa de ello por consola. Si existe, informa por DEBUG.
 #' @author Jose Alejandro Morán Pérez
 #' @param archivo La ruta completa del archivo
-#' @param nombre El nombre con el que se quiere referir al archivo, si se omite se usará la ruta completa
+#' @param nombre El nombre con el que se quiere referir al archivo, si se omite se usará la ruta completa.
 #' @return TRUE o FALSE según exista, o no, el archivo.
-#' @examples asegurarExistencia(nombre_archivo_csv, "ImportanTe")
+#' @examples
+#'  \dontrun{
+#' asegurarExistencia(nombre_archivo_csv, "ImportanTe")
 #' #-> TRUE (Debug: "OK: se ha encontrado el archivo ImportanTe")
+#' }
 #' @export
 asegurarExistencia <- function(archivo, nombre = archivo) {
   resultado <- FALSE
@@ -357,11 +364,14 @@ asegurarExistencia <- function(archivo, nombre = archivo) {
 #' agnadirNivel
 #'
 #' Añade un nuevo nivel a un factor
-#' @author Jose Alejandro Morán Pérez
+#' @author Jose Alejandro Morán Pérez.
 #' @param factor Un objeto de tipo factor
-#' @param nivel Un string que será el nombre del nuevo nivel. Tambien puede ser una concatenación de strings.
-#' @return El factor con un nivel más. Si el nivel ya estaba en el factor, se ignora.
-#' @examples agnadirNivel(factor(c("a", "b", "c")), c("d", "a")) #<- a b c (Levels: a b c d)
+#' @param nivel Un string que será el nombre del nuevo nivel. Tambien puede ser
+#'   una concatenación de strings.
+#' @return El factor con un nivel más. Si el nivel ya estaba en el factor, se
+#'   ignora.
+#' @examples
+#' agnadirNivel(factor(c("a", "b", "c")), c("d", "a")) #<- a b c (Levels: a b c d)
 #' @export
 agnadirNivel <- function(factor, nivel) {
   if (is.factor(factor)) {
@@ -375,9 +385,10 @@ agnadirNivel <- function(factor, nivel) {
 #'
 #' Cuenta el número de filas que tiene una tabla
 #' @author Jose Alejandro Morán Pérez
-#' @param tabla Una tabla de datos medible
-#' @return El número de registros en la tabla
-#' @examples recuento(c(3, 3)) #-> 2
+#' @param tabla Una tabla de datos medible.
+#' @return El número de registros en la tabla.
+#' @examples
+#' recuento(c(3, 3)) #-> 2
 #' @export
 recuento <- function(tabla) {
   return(tamagno(tabla)[1])
@@ -388,9 +399,10 @@ recuento <- function(tabla) {
 #'
 #' Indica si una tabla contiene datos
 #' @author Jose Alejandro Morán Pérez
-#' @param tabla Una tabla de datos medible
-#' @return TRUE o FALSE según haya, o no, registros en la tabla
-#' @examples hay(c(3, 3)) #-> TRUE
+#' @param tabla Una tabla de datos medible.
+#' @return TRUE o FALSE según haya, o no, registros en la tabla.
+#' @examples
+#' hay(c(3, 3)) #-> TRUE
 #' @export
 hay <- function(tabla) {
   if (tamagno(tabla)[1] > 0) {

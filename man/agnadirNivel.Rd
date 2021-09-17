@@ -9,10 +9,12 @@ agnadirNivel(factor, nivel)
 \arguments{
 \item{factor}{Un objeto de tipo factor}
 
-\item{nivel}{Un string que será el nombre del nuevo nivel. Tambien puede ser una concatenación de strings.}
+\item{nivel}{Un string que será el nombre del nuevo nivel. Tambien puede ser
+una concatenación de strings.}
 }
 \value{
-El factor con un nivel más. Si el nivel ya estaba en el factor, se ignora.
+El factor con un nivel más. Si el nivel ya estaba en el factor, se
+  ignora.
 }
 \description{
 Añade un nuevo nivel a un factor
@@ -21,5 +23,5 @@ Añade un nuevo nivel a un factor
 agnadirNivel(factor(c("a", "b", "c")), c("d", "a")) #<- a b c (Levels: a b c d)
 }
 \author{
-Jose Alejandro Morán Pérez
+Jose Alejandro Morán Pérez.
 }

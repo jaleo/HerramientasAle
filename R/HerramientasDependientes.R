@@ -39,8 +39,11 @@ color_transparente <- function(color, percent = 50, name = NULL) {
 #' @param columna Coordenada de la columna de la celda en que situar el título
 #' @param texto Texto del título. Si es nulo, no se establece el texto, sólo se cambia el formato.
 #' @param estilo Estilo en que irá el título.
-#' @examples crearTituloExcel(hoja = sheet, fila = 2, columna = 2, estilo = TITLE_STYLE)
-#' #-> ### Crea un título formateado en la celda B2
+#' @examples
+#'   \dontrun{
+#'     crearTituloExcel(hoja = sheet, fila = 2, columna = 2, estilo = TITLE_STYLE)
+#'     #-> ### Crea un título formateado en la celda B2
+#'   }
 #' @export
 crearTituloExcel <- function(hoja, fila, columna, texto, estilo) {
   row <- getRows(sheet = hoja, rowIndex = fila)
@@ -57,13 +60,16 @@ crearTituloExcel <- function(hoja, fila, columna, texto, estilo) {
 #'
 #' Modifica el estilo de las filas y columnas de una tabla. Esto es, de la primera fila y la primera columna de la tabla
 #' @author Jose Alejandro Morán Pérez
-#' @param hoja El objeto de hoja de excel en que poner el título. Si no es una lista, no se procesan las filas
-#' @param filas Coordenadas de las filas que se deben modificar. Si no es una lista, no se procesan las columnas
+#' @param hoja El objeto de hoja de excel en que poner el título. Si no es una lista, no se procesan las filas.
+#' @param filas Coordenadas de las filas que se deben modificar. Si no es una lista, no se procesan las columnas.
 #' @param columnas Coordenadas de las columnas que se deben modificar.
 #' @param estiloFilas Estilo que se aplicará a las filas.
 #' @param estiloColumnas Estilo que se aplicará a las columnas.
-#' @examples modificarEstiloTituloExcel(sheet, 2:5, 2:8, TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE)
-#' #-> ### Crea un título en la primer fila y columna de la tabla 2,2 a 5,8
+#' @examples
+#'  \dontrun{
+#'     modificarEstiloTituloExcel(sheet, 2:5, 2:8, TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE)
+#'     #-> ### Crea un título en la primer fila y columna de la tabla 2,2 a 5,8
+#'  }
 #' @export
 modificarEstiloTituloExcel <- function(hoja, filas, columnas, estiloFilas, estiloColumnas) {
   if (length(filas) != 1) {
@@ -85,8 +91,9 @@ modificarEstiloTituloExcel <- function(hoja, filas, columnas, estiloFilas, estil
 #'
 #' Devuelve la ip actual del ordenador.
 #' @author Jose Alejandro Morán Pérez
-#' @return Una cadena con la IP asignada al ordenador
-#' @examples cualEsMiIP() #-> "193.146.96.2"
+#' @return Una cadena con la IP asignada al ordenador.
+#' @examples
+#' cualEsMiIP() #-> "193.146.96.2"
 #' @seealso \url{https://www.ipify.org/}
 #' @export
 cualEsMiIP <- function() {
@@ -99,11 +106,13 @@ cualEsMiIP <- function() {
 #'
 #' Guarda un dataframe con fommato de archivo .tsv codificado en UTF-8 con BOM
 #' @author Jose Alejandro Morán Pérez
-#' @param datos El conjunto de daos a guardar
+#' @param datos El conjunto de datos a guardar.
 #' @param nombre_fichero El nombre del fichero con que se guardarán los datos.
 #' @return nada
 #' @examples
+#'  \dontrun{
 #' guardar_tsv_utf8_con_bom(datos, "datos.tsv")
+#' }
 #' @export
 guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero) {
   BOM <- charToRaw("\xEF\xBB\xBF")
@@ -120,7 +129,10 @@ guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero) {
 #'
 #' Cierra todas la conexiónes con servidores Mysql activas
 #' @author Jose Alejandro Morán Pérez
-#' @examples desconectarTodasLasBasesDeDatosMysql()
+#' @examples
+#'  \dontrun{
+#' desconectarTodasLasBasesDeDatosMysql()
+#' }
 #' @export
 desconectarTodasLasBasesDeDatosMysql <- function() {
   conexionesActivas <- dbListConnections(RMySQL::MySQL())
@@ -159,7 +171,7 @@ extraerRutaDeWindows <- function(path = "clipboard", copiarAPortaPapeles = TRUE)
 #'
 #' Formatéa una ruta del sistema operativo Windows para que sea posible introducirla en un script de R sin necesidad e hacer cambios adicionales.
 #'
-#' Esta utilidad tiene un comportamiento especial: utiliza el contendio del portapapeles, por tanto, la ruta del dirctorio debe estar en el portapapeles.
+#' Esta utilidad tiene un comportamiento especial: utiliza el contenido del portapapeles, por tanto, la ruta del dirctorio debe estar en el portapapeles.
 #' Al ejecutrar esta función, se imprime la ruta en el formato que se necesita
 #' @author Jose Alejandro Morán Pérez
 #' @param path La ruta en formato R.

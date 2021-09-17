@@ -7,9 +7,9 @@
 sustituirNAs(datos, sustituto = "·")
 }
 \arguments{
-\item{datos}{Un conjunto de datos que deben imprimir. Se esperan dataframes}
+\item{datos}{Un conjunto de datos que deben imprimir. Se esperan dataframes.}
 
-\item{sustituto}{El valor por el que se reemplazan los NA. Por defecto: ·}
+\item{sustituto}{El valor por el que se reemplazan los NA. Por defecto: ·.}
 }
 \value{
 El conjunto de datos con los NAs sustituidos.
@@ -34,7 +34,7 @@ sustituirNAs(ejemplo, "0")
 #          4.9           0
 }
 \references{
-https://stackoverflow.com/questions/19516302/do-not-print-na-when-printing-data-frame
+\url{https://stackoverflow.com/questions/19516302/do-not-print-na-when-printing-data-frame}
 }
 \author{
 Jose Alejandro Morán Pérez

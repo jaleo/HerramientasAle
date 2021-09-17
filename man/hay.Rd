@@ -7,10 +7,10 @@
 hay(tabla)
 }
 \arguments{
-\item{tabla}{Una tabla de datos medible}
+\item{tabla}{Una tabla de datos medible.}
 }
 \value{
-TRUE o FALSE según haya, o no, registros en la tabla
+TRUE o FALSE según haya, o no, registros en la tabla.
 }
 \description{
 Indica si una tabla contiene datos

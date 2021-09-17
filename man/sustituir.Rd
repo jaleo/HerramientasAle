@@ -7,9 +7,9 @@
 sustituir(datos, sustituto = "·")
 }
 \arguments{
-\item{datos}{Un conjunto de datos que deben imprimir. Se esperan dataframes}
+\item{datos}{Un conjunto de datos que deben imprimir. Se esperan dataframes.}
 
-\item{sustituto}{El valor por el que se reemplazan los NA. Por defecto: ·}
+\item{sustituto}{El valor por el que se reemplazan los NA. Por defecto: ·.}
 }
 \value{
 El conjunto de datos con los NAs sustituidos.

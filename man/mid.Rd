@@ -12,7 +12,7 @@ mid(text, start_num, num_char)
 \arguments{
 \item{text}{La cadena de caracteres}
 
-\item{start_num}{La posición inicial de la extracción}
+\item{start_num}{La posición inicial de la extracción.}
 
 \item{num_char}{Número de caracteres}
 }

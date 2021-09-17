@@ -21,8 +21,10 @@ crearTituloExcel(hoja, fila, columna, texto, estilo)
 Crea un título formateado en una celda de una hoja de excel
 }
 \examples{
-crearTituloExcel(hoja = sheet, fila = 2, columna = 2, estilo = TITLE_STYLE)
-#-> ### Crea un título formateado en la celda B2
+  \dontrun{
+    crearTituloExcel(hoja = sheet, fila = 2, columna = 2, estilo = TITLE_STYLE)
+    #-> ### Crea un título formateado en la celda B2
+  }
 }
 \author{
 Jose Alejandro Morán Pérez

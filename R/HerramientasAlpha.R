@@ -9,7 +9,7 @@
 #' Está pensado para eliminar filas inútiles de las hojas de datos complejas.
 #' @author Jose Alejandro Morán Pérez <jaleomp@gmail.com>
 #' @param datos Los datos a limpiar.
-#' @param titulos Los títulos a añadir al resultado. Si no se incluyen, se extraen de los datos
+#' @param titulos Los títulos a añadir al resultado. Si no se incluyen, se extraen de los datos.
 #' @return un dataframe con los datos límpios, el título sin puntos y con, al menos, una fila y 2 columnas.
 #' @export
 limpiarDatosDeHoja <- function(datos, titulos = NULL) {
