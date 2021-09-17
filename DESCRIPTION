@@ -5,8 +5,10 @@ Version: 0.1.0
 Author: Jose Alejandro Morán Pérez
 Authors@R: person("Jose Alejandro", "Morán Pérez", email = "jaleomp@gmail.com",  role = c("aut", "cre"))
 Maintainer: Jose Alejandro Morán Pérez <jaleomp@gmail.com>
-Description: Herramientas de Ale. Contiene herramientas y utilidades genéricas que facilitan el trabajo con R.
-    Por ejemplo, aSalida: una función para enviar textos concatenados a la salida estandard.
+Description: Herramientas de Ale. Contiene herramientas y utilidades genéricas 
+    que facilitan el trabajo con R.
+    Por ejemplo, aSalida: una función para enviar textos concatenados a la 
+    salida estándar.
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true

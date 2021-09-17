@@ -157,7 +157,7 @@ imprimir <- function(datos, sustituto = "") {
 #' @param start_time Un número de segundos.
 #' @return Una cadena de texto en formato \code{h:mm:ss}.
 #' @examples
-#' format.segundos(605) | Produce:0:10:05
+#' format.segundos(605) #| Produce:0:10:05
 #' @export
 format.segundos <- function(start_time) {
   formateado <- list(rep(-1, length(start_time)))
