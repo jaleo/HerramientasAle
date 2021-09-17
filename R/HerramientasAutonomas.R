@@ -38,7 +38,7 @@ mid <- function(text, start_num, num_char) {
 #' @export
 right <- function(text, num_char) {
   text <- as.character(text)
-  substr(text, nchar(text) - (num_char-1), nchar(text))
+  substr(text, nchar(text) - (num_char - 1), nchar(text))
 }
 
 
@@ -48,11 +48,11 @@ right <- function(text, num_char) {
 #' @author Jose Alejandro Morán Pérez
 #' @param titulo El título a inserta
 #' @param nivel El nivel que debe tener dicho título
-#' @examples insertarTitulo("Título de nivel 3", 3)  #-> ### Título de nivel 3
+#' @examples insertarTitulo("Título de nivel 3", 3) #-> ### Título de nivel 3
 #' @export
-insertarTitulo <-function(titulo, nivel){
+insertarTitulo <- function(titulo, nivel) {
   # marca_de_nivel <- paste(replicate(nivel, "#"), collapse = "")
-  marca_de_nivel <- strrep("#",nivel)
+  marca_de_nivel <- strrep("#", nivel)
   cat(marca_de_nivel, titulo, "\n")
 }
 
@@ -66,12 +66,12 @@ insertarTitulo <-function(titulo, nivel){
 #' @references https://stackoverflow.com/questions/19516302/do-not-print-na-when-printing-data-frame
 #' @return El conjunto de datos con los NAs sustituidos.
 #' @examples
-#' ejemplo <-iris[1:2,1:2]
+#' ejemplo <- iris[1:2, 1:2]
 #' ejemplo
 #' # Sepal.Length Sepal.Width
 #' #          5.1         3.5
 #' #          4.9         3.0
-#' ejemplo[2,2] <- NA;
+#' ejemplo[2, 2] <- NA
 #' ejemplo
 #' # Sepal.Length Sepal.Width
 #' #          5.1         3.5
@@ -81,7 +81,7 @@ insertarTitulo <-function(titulo, nivel){
 #' #          5.1         3.5
 #' #          4.9           0
 #' @export
-sustituirNAs <- function(datos, sustituto = '·'){
+sustituirNAs <- function(datos, sustituto = "·") {
   df <- format(datos)
   df[is.na(datos)] <- sustituto
   return(df)
@@ -94,8 +94,8 @@ sustituirNAs <- function(datos, sustituto = '·'){
 #' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes
 #' @param sustituto El valor por el que se reemplazan los NA. Por defecto: vacío
 #' @export
-imprimirNAs <- function(datos, sustituto = ""){
-  print(sustituirNAs(datos,sustituto = sustituto))
+imprimirNAs <- function(datos, sustituto = "") {
+  print(sustituirNAs(datos, sustituto = sustituto))
 }
 
 #' sustituir (Deprecado)
@@ -110,12 +110,12 @@ imprimirNAs <- function(datos, sustituto = ""){
 #' @return El conjunto de datos con los NAs sustituidos.
 #' @seealso sustituirNAs
 #' @examples
-#' ejemplo <-iris[1:2,1:2]
+#' ejemplo <- iris[1:2, 1:2]
 #' ejemplo
 #' # Sepal.Length Sepal.Width
 #' #          5.1         3.5
 #' #          4.9         3.0
-#' ejemplo[2,2] <- NA;
+#' ejemplo[2, 2] <- NA
 #' ejemplo
 #' # Sepal.Length Sepal.Width
 #' #          5.1         3.5
@@ -124,7 +124,7 @@ imprimirNAs <- function(datos, sustituto = ""){
 #' # Sepal.Length Sepal.Width
 #' #          5.1         3.5
 #' #          4.9           0
-sustituir <- function(datos, sustituto = '·'){
+sustituir <- function(datos, sustituto = "·") {
   return(sustituirNAs(datos, sustituto))
 }
 
@@ -136,8 +136,8 @@ sustituir <- function(datos, sustituto = '·'){
 #' @author Jose Alejandro Morán Pérez
 #' @param datos Un conjunto de datos que deben imprimir. Se esperan dataframes
 #' @param sustituto El valor por el que se reemplazan los NA. Por defecto: vacío
-imprimir <- function(datos, sustituto = ""){
-  print(imprimirNAs(datos,sustituto = sustituto))
+imprimir <- function(datos, sustituto = "") {
+  print(imprimirNAs(datos, sustituto = sustituto))
 }
 
 #' Not in
@@ -147,7 +147,7 @@ imprimir <- function(datos, sustituto = ""){
 #' @param x uno de los operandos
 #' @param y otro operando. Con quien se compara el primero.
 #' @export
-'%!in%' <- function(x,y)!('%in%'(x,y))
+"%!in%" <- function(x, y) !("%in%"(x, y))
 
 
 #' format.segundos
@@ -157,20 +157,20 @@ imprimir <- function(datos, sustituto = ""){
 #' @param start_time Un número de segundos.
 #' @return Una cadena de texto en formato \code{h:mm:ss}.
 #' @examples
-#' format.segundos(605) | Produce: 0:10:05
+#' format.segundos(605) | Produce:0:10:05
 #' @export
 format.segundos <- function(start_time) {
-  formateado <- list(rep(-1,length(start_time)))
-  for (time in 1:length(start_time)){
-    diff = start_time[time]
-    hr <- diff%/%3600
-    min <- round(floor(diff - hr * 3600)/60, digits = 0)
+  formateado <- list(rep(-1, length(start_time)))
+  for (time in 1:length(start_time)) {
+    diff <- start_time[time]
+    hr <- diff %/% 3600
+    min <- round(floor(diff - hr * 3600) / 60, digits = 0)
     sec <- round(floor(diff - min * 60 - hr * 3600), digits = 0)
-    if(sec < 0){
-      min <- min -1
+    if (sec < 0) {
+      min <- min - 1
       sec <- sec + 60
     }
-    formateado[[1]][time]<-sprintf("%d:%02.0f:%02.0f",hr,min,sec)
+    formateado[[1]][time] <- sprintf("%d:%02.0f:%02.0f", hr, min, sec)
   }
   return(formateado[[1]])
 }
@@ -191,10 +191,10 @@ extraerFecha <- function(cadena) {
   patron <- "^[0-9]{4}-[0-9]{2}-[0-9]{2}"
   correctos <- grepl(pattern = patron, cadena)
   resultado <- left(cadena, 10)
-  if(length(correctos[correctos == F])>0){
+  if (length(correctos[correctos == F]) > 0) {
     incorrectos <- cadena[!correctos]
     for (incorrecto in incorrectos) {
-      warning(paste0("No se ha podido extraer la Fecha de \"",cadena,"\". El formato debería ser AAAA-MM-DD."))
+      warning(paste0("No se ha podido extraer la Fecha de \"", cadena, "\". El formato debería ser AAAA-MM-DD."))
     }
     resultado[!correctos] <- ""
   }
@@ -215,10 +215,10 @@ extraerHora <- function(cadena) {
   patron <- "[0-9]{2}:[0-9]{2}:[0-9]{2}$"
   correctos <- grepl(pattern = patron, cadena)
   resultado <- right(cadena, 8)
-  if(length(correctos[correctos == F])>0){
+  if (length(correctos[correctos == F]) > 0) {
     incorrectos <- cadena[!correctos]
     for (incorrecto in incorrectos) {
-      warning(paste0("No se ha podido extraer la Hora de \"",cadena,"\". El formato debería ser HH:MM:SS."))
+      warning(paste0("No se ha podido extraer la Hora de \"", cadena, "\". El formato debería ser HH:MM:SS."))
     }
     resultado[!correctos] <- ""
   }
@@ -234,11 +234,11 @@ extraerHora <- function(cadena) {
 #' @return La subcadena de la extensión, o "" si no encuentra el punto..
 #' @examples getTipo("00176a223d658759746323cc1281e93d.jpg") #-> "jpg"
 #' @export
-getTipo <- function(nombreDeFichero){
+getTipo <- function(nombreDeFichero) {
   resultado <- ""
   tmp <- gregexpr(pattern = "\\.", nombreDeFichero)
   posicion <- tmp[[1]][1]
-  resultado <- right(nombreDeFichero, nchar(nombreDeFichero)-posicion)
+  resultado <- right(nombreDeFichero, nchar(nombreDeFichero) - posicion)
   return(resultado)
 }
 
@@ -253,8 +253,8 @@ getTipo <- function(nombreDeFichero){
 #' incremento <- 47
 #' haSalida("Incremento: ", incremento, "Seg") #-> "<p>Incremento: 47Seg<p>"
 #' @export
-haSalida <- function(...){
-  cat(paste0("<p>",...,"</p>"))
+haSalida <- function(...) {
+  cat(paste0("<p>", ..., "</p>"))
 }
 
 #' aSalida
@@ -285,8 +285,8 @@ aSalida <- function(...) {
 #' aDebug("Incremento: ", incremento, "Seg") #-> "Incremento: 47Seg"
 #' @export
 aDebug <- function(...) {
-  if(exists("DEBUG")){
-    if(DEBUG == TRUE){
+  if (exists("DEBUG")) {
+    if (DEBUG == TRUE) {
       aSalida(...)
     }
   }
@@ -302,8 +302,8 @@ aDebug <- function(...) {
 #' @examples
 #' numero <- 47
 #' cuidado("Peligro: ", numero, "Seg") #-> "Peligro: 47Seg"
-#' #"Warning message:
-#' #"In cuidado("Peligro: ", numero, "Seg") : Peligro: 47Seg
+#' # "Warning message:
+#' # "In cuidado("Peligro: ", numero, "Seg") : Peligro: 47Seg
 #' @export
 cuidado <- function(...) {
   warning(paste0(...))
@@ -320,10 +320,10 @@ cuidado <- function(...) {
 #' listado <- rep("a", 256)
 #' tamagno(listado) #-> 256
 #' @export
-tamagno <- function(objeto){
+tamagno <- function(objeto) {
   resultado <- NULL
   resultado <- dim(objeto)
-  if(is.null(resultado)){
+  if (is.null(resultado)) {
     resultado <- length(objeto)
   }
   return(resultado)
@@ -341,13 +341,13 @@ tamagno <- function(objeto){
 #' @examples asegurarExistencia(nombre_archivo_csv, "ImportanTe")
 #' #-> TRUE (Debug: "OK: se ha encontrado el archivo ImportanTe")
 #' @export
-asegurarExistencia <- function(archivo, nombre = archivo){
+asegurarExistencia <- function(archivo, nombre = archivo) {
   resultado <- FALSE
-  if(!file.exists(archivo)){
+  if (!file.exists(archivo)) {
     aSalida("******************************************************************")
     aSalida("No existe el archivo ", nombre)
     aSalida("******************************************************************")
-  }else{
+  } else {
     aDebug("OK: se ha encontrado el archivo ", nombre)
     resultado <- TRUE
   }
@@ -361,10 +361,12 @@ asegurarExistencia <- function(archivo, nombre = archivo){
 #' @param factor Un objeto de tipo factor
 #' @param nivel Un string que será el nombre del nuevo nivel. Tambien puede ser una concatenación de strings.
 #' @return El factor con un nivel más. Si el nivel ya estaba en el factor, se ignora.
-#' @examples agnadirNivel(factor(c("a", "b", "c")),c("d","a")) #<- a b c (Levels: a b c d)
+#' @examples agnadirNivel(factor(c("a", "b", "c")), c("d", "a")) #<- a b c (Levels: a b c d)
 #' @export
-agnadirNivel <- function(factor, nivel){
-  if(is.factor(factor)) return(factor(factor, levels=unique(c(levels(factor), nivel))))
+agnadirNivel <- function(factor, nivel) {
+  if (is.factor(factor)) {
+    return(factor(factor, levels = unique(c(levels(factor), nivel))))
+  }
   return(factor)
 }
 
@@ -375,9 +377,9 @@ agnadirNivel <- function(factor, nivel){
 #' @author Jose Alejandro Morán Pérez
 #' @param tabla Una tabla de datos medible
 #' @return El número de registros en la tabla
-#' @examples recuento(c(3,3)) #-> 2
+#' @examples recuento(c(3, 3)) #-> 2
 #' @export
-recuento <- function(tabla){
+recuento <- function(tabla) {
   return(tamagno(tabla)[1])
 }
 
@@ -388,12 +390,12 @@ recuento <- function(tabla){
 #' @author Jose Alejandro Morán Pérez
 #' @param tabla Una tabla de datos medible
 #' @return TRUE o FALSE según haya, o no, registros en la tabla
-#' @examples hay(c(3,3)) #-> TRUE
+#' @examples hay(c(3, 3)) #-> TRUE
 #' @export
-hay <- function(tabla){
-  if(tamagno(tabla)[1] >0){
+hay <- function(tabla) {
+  if (tamagno(tabla)[1] > 0) {
     return(TRUE)
-  }else{
+  } else {
     return(FALSE)
   }
 }
@@ -411,26 +413,26 @@ hay <- function(tabla){
 #' @return las fechas modificadas. Si no se puede convertir a fecha, lo mismo que se envíe.
 #' @examples sumar_fechas("2020-12-04 14:46:47", -4, 4) #-> "2020-11-30 18:46:47"
 #' @export
-sumar_fechas <- function(fechas, dias = 0, horas = 0, minutos = 0, segundos = 0){
+sumar_fechas <- function(fechas, dias = 0, horas = 0, minutos = 0, segundos = 0) {
   tipo <- class(fechas)
   resultado <- NULL
   for (fecha in fechas) {
     nueva <- tryCatch(
       {
         tmp <- as.POSIXct(fecha)
-        segundos_agnadidos <- dias*24*60*60 + horas*60*60 + minutos*60 + segundos
+        segundos_agnadidos <- dias * 24 * 60 * 60 + horas * 60 * 60 + minutos * 60 + segundos
         tmp <- tmp + segundos_agnadidos
       },
-      error = function(cond){
+      error = function(cond) {
         # message(cond)
         return(fecha)
       }
     )
     resultado <- c(resultado, as.character(nueva))
   }
-  if(tipo == "factor"){
+  if (tipo == "factor") {
     return(as.factor(resultado))
-  }else { #character
+  } else { # character
     return(resultado)
   }
 }
@@ -441,36 +443,36 @@ sumar_fechas <- function(fechas, dias = 0, horas = 0, minutos = 0, segundos = 0)
 #' @author Jose Alejandro Morán Pérez
 #' @param data El dataframe
 #' @return El dataframe sin NAs
-#' @examples ejemplo <-iris[1:2,1:2];
-#'          #     Sepal.Length Sepal.Width
-#'          #              5.1         3.5
-#'          #              4.9         3.0
-#'          ejemplo[2,2] <- NA;
-#'          #     Sepal.Length Sepal.Width
-#'          #              5.1         3.5
-#'          #              4.9         NA
-#'          reemplazar.nas(ejemplo) #->
-#'          #     Sepal.Length Sepal.Width
-#'          #              5.1         3.5
-#'          #              4.9
+#' @examples ejemplo <- iris[1:2, 1:2]
+#' #     Sepal.Length Sepal.Width
+#' #              5.1         3.5
+#' #              4.9         3.0
+#' ejemplo[2, 2] <- NA
+#' #     Sepal.Length Sepal.Width
+#' #              5.1         3.5
+#' #              4.9         NA
+#' reemplazar.nas(ejemplo) #->
+#' #     Sepal.Length Sepal.Width
+#' #              5.1         3.5
+#' #              4.9
 #' @export
-reemplazar.nas <- function(data){
+reemplazar.nas <- function(data) {
   nombres <- names(data)
 
-  for(n in 1:length(nombres)){
+  for (n in 1:length(nombres)) {
     hayNas <- FALSE
     data[[n]] <- as.factor(data[[n]])
-    for(dato in data[[n]]){
-      if(is.na(dato)){
-        hayNas<-TRUE
+    for (dato in data[[n]]) {
+      if (is.na(dato)) {
+        hayNas <- TRUE
         break
       }
     }
-    if(hayNas){
+    if (hayNas) {
       niveles <- levels(data[[n]])
       niveles[length(niveles) + 1] <- ""
-      levels(data[[n]])<-niveles
-      data[[n]][is.na(data[[n]])]<-""
+      levels(data[[n]]) <- niveles
+      data[[n]][is.na(data[[n]])] <- ""
     }
   }
   return(data)

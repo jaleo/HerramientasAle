@@ -14,17 +14,18 @@
 #' color_transparente("#11aaff", 25) #-> "#11AAFFBF"
 #' @export
 color_transparente <- function(color, percent = 50, name = NULL) {
-  #	  color = color name
-  #	percent = % transparency
-  #	   name = an optional name for the color
+  # 	  color = color name
+  # 	percent = % transparency
+  # 	   name = an optional name for the color
   ## Get RGB values for named color
   # require("grDevices")
   rgb.val <- col2rgb(color)
   ## Make new color using input color as base and alpha set by transparency
   t.col <- rgb(rgb.val[1], rgb.val[2], rgb.val[3],
-               max = 255,
-               alpha = (100-percent)*255/100,
-               names = name)
+    max = 255,
+    alpha = (100 - percent) * 255 / 100,
+    names = name
+  )
   ## Save the color
   return(t.col)
 }
@@ -41,15 +42,14 @@ color_transparente <- function(color, percent = 50, name = NULL) {
 #' @examples crearTituloExcel(hoja = sheet, fila = 2, columna = 2, estilo = TITLE_STYLE)
 #' #-> ### Crea un título formateado en la celda B2
 #' @export
-crearTituloExcel <- function(hoja, fila, columna, texto, estilo){
-
+crearTituloExcel <- function(hoja, fila, columna, texto, estilo) {
   row <- getRows(sheet = hoja, rowIndex = fila)
-  if(is.null(row) | length(row) == 0){
-    row <- createRow(sheet = hoja,rowIndex = fila)
+  if (is.null(row) | length(row) == 0) {
+    row <- createRow(sheet = hoja, rowIndex = fila)
   }
   celda <- getCells(row, colIndex = columna)
-  if(is.null(celda)) celda <- createCell(row,colIndex = columna)
-  if(!is.null(texto)) setCellValue(celda[[1]], texto)
+  if (is.null(celda)) celda <- createCell(row, colIndex = columna)
+  if (!is.null(texto)) setCellValue(celda[[1]], texto)
   setCellStyle(celda[[1]], estilo)
 }
 
@@ -62,20 +62,20 @@ crearTituloExcel <- function(hoja, fila, columna, texto, estilo){
 #' @param columnas Coordenadas de las columnas que se deben modificar.
 #' @param estiloFilas Estilo que se aplicará a las filas.
 #' @param estiloColumnas Estilo que se aplicará a las columnas.
-#' @examples modificarEstiloTituloExcel(sheet,2:5, 2:8,TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE)
+#' @examples modificarEstiloTituloExcel(sheet, 2:5, 2:8, TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE)
 #' #-> ### Crea un título en la primer fila y columna de la tabla 2,2 a 5,8
 #' @export
-modificarEstiloTituloExcel <- function(hoja, filas, columnas,estiloFilas, estiloColumnas){
-  if(length(filas) != 1){
-    for(x in filas){
+modificarEstiloTituloExcel <- function(hoja, filas, columnas, estiloFilas, estiloColumnas) {
+  if (length(filas) != 1) {
+    for (x in filas) {
       # print(paste("fila",x,"columna", columnas[1]))
-      crearTituloExcel(hoja,x,columnas[1],NULL,estiloFilas)
+      crearTituloExcel(hoja, x, columnas[1], NULL, estiloFilas)
     }
   }
-  if(length(columnas) != 1){
-    for(y in columnas){
+  if (length(columnas) != 1) {
+    for (y in columnas) {
       # print(paste("fila",filas[1],"columna", y))
-      crearTituloExcel(hoja,filas[1],y,NULL,estiloColumnas)
+      crearTituloExcel(hoja, filas[1], y, NULL, estiloColumnas)
     }
   }
 }
@@ -89,7 +89,7 @@ modificarEstiloTituloExcel <- function(hoja, filas, columnas,estiloFilas, estilo
 #' @examples cualEsMiIP() #-> "193.146.96.2"
 #' @seealso \url{https://www.ipify.org/}
 #' @export
-cualEsMiIP <- function(){
+cualEsMiIP <- function() {
   ip <- rawToChar(curl::curl_fetch_memory("https://api.ipify.org?format=json")$content)
   return(jsonlite::fromJSON(ip)$ip)
 }
@@ -103,15 +103,15 @@ cualEsMiIP <- function(){
 #' @param nombre_fichero El nombre del fichero con que se guardarán los datos.
 #' @return nada
 #' @examples
-#'    guardar_tsv_utf8_con_bom(datos, "datos.tsv")
+#' guardar_tsv_utf8_con_bom(datos, "datos.tsv")
 #' @export
-guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero){
-  BOM <- charToRaw('\xEF\xBB\xBF')
-  con<-file(nombre_fichero,encoding="UTF-8", "wb")
-  writeBin(BOM, con, endian="little")
+guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero) {
+  BOM <- charToRaw("\xEF\xBB\xBF")
+  con <- file(nombre_fichero, encoding = "UTF-8", "wb")
+  writeBin(BOM, con, endian = "little")
   close(con)
-  con<-file(nombre_fichero,encoding="UTF-8", "a")
-  rio::export(datos, file = con, format = "tsv", quote = F, na="")
+  con <- file(nombre_fichero, encoding = "UTF-8", "a")
+  rio::export(datos, file = con, format = "tsv", quote = F, na = "")
   close(con)
 }
 
@@ -122,12 +122,11 @@ guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero){
 #' @author Jose Alejandro Morán Pérez
 #' @examples desconectarTodasLasBasesDeDatosMysql()
 #' @export
-desconectarTodasLasBasesDeDatosMysql <- function(){
+desconectarTodasLasBasesDeDatosMysql <- function() {
   conexionesActivas <- dbListConnections(RMySQL::MySQL())
   for (conexion in conexionesActivas) {
     print(paste("Desconectando la conexión con", dbGetInfo(conexion)$host))
     dbDisconnect(conexion)
-
   }
 }
 
@@ -151,7 +150,7 @@ extraerRutaDeWindows <- function(path = "clipboard", copiarAPortaPapeles = TRUE)
     readline()
   }
   x <- chartr("\\", "/", y)
-  if(copiarAPortaPapeles)writeClipboard(x)
+  if (copiarAPortaPapeles) writeClipboard(x)
 
   return(x)
 }
@@ -166,18 +165,18 @@ extraerRutaDeWindows <- function(path = "clipboard", copiarAPortaPapeles = TRUE)
 #' @param path La ruta en formato R.
 #' @return Una ruta compatible con Windows.
 #' @examples extraerRutaDeWindows("G:/Unidades compartidas/EMPRESA/BBDD/JSON")
-#' #-> Produce: "G:\\Unidades compartidas\\EMPRESA\\BBDD\\JSON"
-#' # Si se quiere elimina la doble \\ se debe imporimir este resultado con cat()
+#' #-> Produce: "G:\Unidades compartidas\EMPRESA\BBDD\JSON"
+#' # Si se quiere elimina la doble \ se debe imporimir este resultado con cat()
 convertirRutaDeRaFormatoWindows <- function(path = "clipboard") {
   y <- if (path == "clipboard") {
     readClipboard()
-  } else if(nchar(path) > 0){
-    y = path
+  } else if (nchar(path) > 0) {
+    y <- path
   } else {
     cat("Por favor, intorduce la ruta:\n\n")
     readline()
   }
-  x <- chartr("/", '\\', y)
+  x <- chartr("/", "\\", y)
   writeClipboard(x)
   return(x)
 }
