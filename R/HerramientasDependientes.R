@@ -10,6 +10,7 @@
 #' @param color El nombre del color
 #' @param percent Porcentaje de transparencia
 #' @param name Un nombre, opcional, para el color
+#' @importFrom grDevices col2rgb rgb
 #' @examples
 #' color_transparente("#11aaff", 25) #-> "#11AAFFBF"
 #' @export
@@ -129,6 +130,7 @@ guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero) {
 #'
 #' Cierra todas la conexiónes con servidores Mysql activas
 #' @author Jose Alejandro Morán Pérez
+#' @importFrom DBI dbListConnections dbGetInfo dbDisconnect
 #' @examples
 #'  \dontrun{
 #' desconectarTodasLasBasesDeDatosMysql()
@@ -175,6 +177,7 @@ extraerRutaDeWindows <- function(path = "clipboard", copiarAPortaPapeles = TRUE)
 #' Al ejecutrar esta función, se imprime la ruta en el formato que se necesita
 #' @author Jose Alejandro Morán Pérez
 #' @param path La ruta en formato R.
+#' @importFrom utils readClipboard writeClipboard
 #' @return Una ruta compatible con Windows.
 #' @examples extraerRutaDeWindows("G:/Unidades compartidas/EMPRESA/BBDD/JSON")
 #' #-> Produce: "G:\Unidades compartidas\EMPRESA\BBDD\JSON"
