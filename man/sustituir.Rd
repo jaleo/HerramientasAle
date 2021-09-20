@@ -21,6 +21,7 @@ Sustituye los NA por otro valor en un conjunto de datos
 Deprecado: Esta función va a ser eliminada en próximas versiones. Su nombre es demasiado genérico. Mejor usar sustituirNAs
 }
 \examples{
+\dontrun{
 ejemplo <- iris[1:2, 1:2]
 ejemplo
 # Sepal.Length Sepal.Width
@@ -35,6 +36,7 @@ sustituir(ejemplo, "0")
 # Sepal.Length Sepal.Width
 #          5.1         3.5
 #          4.9           0
+}
 }
 \references{
 https://stackoverflow.com/questions/19516302/do-not-print-na-when-printing-data-frame

@@ -81,7 +81,7 @@ insertarTitulo <- function(titulo, nivel) {
 #' #          5.1         3.5
 #' #          4.9           0
 #' @export
-sustituirNAs <- function(datos, sustituto = "·") {
+sustituirNAs <- function(datos, sustituto = "\u00b7") {
   df <- format(datos)
   df[is.na(datos)] <- sustituto
   return(df)
@@ -110,6 +110,7 @@ imprimirNAs <- function(datos, sustituto = "") {
 #' @return El conjunto de datos con los NAs sustituidos.
 #' @seealso sustituirNAs
 #' @examples
+#' \dontrun{
 #' ejemplo <- iris[1:2, 1:2]
 #' ejemplo
 #' # Sepal.Length Sepal.Width
@@ -124,7 +125,8 @@ imprimirNAs <- function(datos, sustituto = "") {
 #' # Sepal.Length Sepal.Width
 #' #          5.1         3.5
 #' #          4.9           0
-sustituir <- function(datos, sustituto = "·") {
+#' }
+sustituir <- function(datos, sustituto = "\u00b7") {
   return(sustituirNAs(datos, sustituto))
 }
 
@@ -150,16 +152,16 @@ imprimir <- function(datos, sustituto = "") {
 "%!in%" <- function(x, y) !("%in%"(x, y))
 
 
-#' format.segundos
+#' formatSegundos
 #'
 #' Formatea un dato de segundos para que mostrar las horas y minutos que representan.
 #' @author Jose Alejandro Morán Pérez
 #' @param start_time Un número de segundos.
 #' @return Una cadena de texto en formato \code{h:mm:ss}.
 #' @examples
-#' format.segundos(605) #| Produce:0:10:05
+#' formatSegundos(605) #| Produce:0:10:05
 #' @export
-format.segundos <- function(start_time) {
+formatSegundos <- function(start_time) {
   formateado <- list(rep(-1, length(start_time)))
   for (time in 1:length(start_time)) {
     diff <- start_time[time]
@@ -194,7 +196,7 @@ extraerFecha <- function(cadena) {
   if (length(correctos[correctos == F]) > 0) {
     incorrectos <- cadena[!correctos]
     for (incorrecto in incorrectos) {
-      warning(paste0("No se ha podido extraer la Fecha de \"", cadena, "\". El formato debería ser AAAA-MM-DD."))
+      warning(paste0("No se ha podido extraer la Fecha de \"", cadena, "\". El formato deber\u00eda ser AAAA-MM-DD.")) #i acentuada
     }
     resultado[!correctos] <- ""
   }
@@ -219,7 +221,7 @@ extraerHora <- function(cadena) {
   if (length(correctos[correctos == F]) > 0) {
     incorrectos <- cadena[!correctos]
     for (incorrecto in incorrectos) {
-      warning(paste0("No se ha podido extraer la Hora de \"", cadena, "\". El formato debería ser HH:MM:SS."))
+      warning(paste0("No se ha podido extraer la Hora de \"", cadena, "\". El formato deber\u00eda ser HH:MM:SS.")) #i acentuada
     }
     resultado[!correctos] <- ""
   }

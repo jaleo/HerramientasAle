@@ -137,7 +137,7 @@ guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero) {
 desconectarTodasLasBasesDeDatosMysql <- function() {
   conexionesActivas <- dbListConnections(RMySQL::MySQL())
   for (conexion in conexionesActivas) {
-    print(paste("Desconectando la conexión con", dbGetInfo(conexion)$host))
+    print(paste("Desconectando la conexi\u00f3n con", dbGetInfo(conexion)$host)) # o acentuada
     dbDisconnect(conexion)
   }
 }
