@@ -148,12 +148,13 @@ imprimir <- function(datos, sustituto = "") {
 #' @source \url{http://stackoverflow.com/questions/5831794/opposite-of-in}
 #' @param x uno de los operandos.
 #' @param y otro operando. Con quien se compara el primero.
+#' @name notin
 #' @export
 #' @examples
 #' a <- c(1, 2, 3, 4, 5)
 #' b <- c(1, 2, 3, 5, 7)
 #' a %!in% b
-"%\u0021in%" <- function(x, y) !("%in%"(x, y)) # Cerrar admiracion
+`%!in%` <- function(x, y) !("%in%"(x, y))
 
 
 #' formatSegundos

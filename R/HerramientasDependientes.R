@@ -22,8 +22,11 @@ color_transparente <- function(color, percent = 50, name = NULL) {
   # require("grDevices")
   rgb.val <- col2rgb(color)
   ## Make new color using input color as base and alpha set by transparency
-  t.col <- rgb(rgb.val[1], rgb.val[2], rgb.val[3],
-    max = 255,
+  t.col <- rgb(
+    red = rgb.val[1],
+    green = rgb.val[2],
+    blue = rgb.val[3],
+    maxColorValue	= 255,
     alpha = (100 - percent) * 255 / 100,
     names = name
   )
