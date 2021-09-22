@@ -23,7 +23,6 @@ Imports:
     rio,
     rmarkdown,
     RMySQL,
-    utils,
-    xlsx
+    utils
 Suggests:
     datasets

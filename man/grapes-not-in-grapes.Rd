@@ -17,3 +17,8 @@ x \%!in\% y
 \description{
 Operador de contrario a \%in\%
 }
+\examples{
+a <- c(1, 2, 3, 4, 5)
+b <- c(1, 2, 3, 5, 7)
+a \%!in\% b
+}

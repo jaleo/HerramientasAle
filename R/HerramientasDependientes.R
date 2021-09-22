@@ -31,62 +31,6 @@ color_transparente <- function(color, percent = 50, name = NULL) {
   return(t.col)
 }
 
-#' crearTituloExcel
-#'
-#'   Crea un título formateado en una celda de una hoja de excel
-#' @author Jose Alejandro Morán Pérez
-#' @param hoja El objeto de hoja de excel en que poner el título
-#' @param fila Coordenada de la fila de la celda en que situar el título
-#' @param columna Coordenada de la columna de la celda en que situar el título
-#' @param texto Texto del título. Si es nulo, no se establece el texto, sólo se cambia el formato.
-#' @param estilo Estilo en que irá el título.
-#' @examples
-#'   \dontrun{
-#'     crearTituloExcel(hoja = sheet, fila = 2, columna = 2, estilo = TITLE_STYLE)
-#'     #-> ### Crea un título formateado en la celda B2
-#'   }
-#' @export
-crearTituloExcel <- function(hoja, fila, columna, texto, estilo) {
-  row <- getRows(sheet = hoja, rowIndex = fila)
-  if (is.null(row) | length(row) == 0) {
-    row <- createRow(sheet = hoja, rowIndex = fila)
-  }
-  celda <- getCells(row, colIndex = columna)
-  if (is.null(celda)) celda <- createCell(row, colIndex = columna)
-  if (!is.null(texto)) setCellValue(celda[[1]], texto)
-  setCellStyle(celda[[1]], estilo)
-}
-
-#' modificarEstiloTituloExcel
-#'
-#' Modifica el estilo de las filas y columnas de una tabla. Esto es, de la primera fila y la primera columna de la tabla
-#' @author Jose Alejandro Morán Pérez
-#' @param hoja El objeto de hoja de excel en que poner el título. Si no es una lista, no se procesan las filas.
-#' @param filas Coordenadas de las filas que se deben modificar. Si no es una lista, no se procesan las columnas.
-#' @param columnas Coordenadas de las columnas que se deben modificar.
-#' @param estiloFilas Estilo que se aplicará a las filas.
-#' @param estiloColumnas Estilo que se aplicará a las columnas.
-#' @examples
-#'  \dontrun{
-#'     modificarEstiloTituloExcel(sheet, 2:5, 2:8, TABLE_ROWNAMES_STYLE, TABLE_COLNAMES_STYLE)
-#'     #-> ### Crea un título en la primer fila y columna de la tabla 2,2 a 5,8
-#'  }
-#' @export
-modificarEstiloTituloExcel <- function(hoja, filas, columnas, estiloFilas, estiloColumnas) {
-  if (length(filas) != 1) {
-    for (x in filas) {
-      # print(paste("fila",x,"columna", columnas[1]))
-      crearTituloExcel(hoja, x, columnas[1], NULL, estiloFilas)
-    }
-  }
-  if (length(columnas) != 1) {
-    for (y in columnas) {
-      # print(paste("fila",filas[1],"columna", y))
-      crearTituloExcel(hoja, filas[1], y, NULL, estiloColumnas)
-    }
-  }
-}
-
 
 #' cualEsMiIP
 #'

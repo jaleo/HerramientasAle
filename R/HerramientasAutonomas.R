@@ -149,7 +149,11 @@ imprimir <- function(datos, sustituto = "") {
 #' @param x uno de los operandos.
 #' @param y otro operando. Con quien se compara el primero.
 #' @export
-"%!in%" <- function(x, y) !("%in%"(x, y))
+#' @examples
+#' a <- c(1, 2, 3, 4, 5)
+#' b <- c(1, 2, 3, 5, 7)
+#' a %!in% b
+"%\u0021in%" <- function(x, y) !("%in%"(x, y)) # Cerrar admiracion
 
 
 #' formatSegundos

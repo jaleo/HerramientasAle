@@ -1,44 +1,5 @@
 # Contien funciones en estado alpha: no funcionan muy bien.
 
-#' limpiarDatosDeHoja
-#'
-#' Elimina las filas vacías de los datos extraídos de una hoja de excel.
-#'
-#' Sustituye los puntos por espacios en el título.
-#' Si los datos no los tienen, añade, al menos una fila y 2 columnas, para que se puedan dibujar como tablas
-#' Está pensado para eliminar filas inútiles de las hojas de datos complejas.
-#' @author Jose Alejandro Morán Pérez <jaleomp@gmail.com>
-#' @param datos Los datos a limpiar.
-#' @param titulos Los títulos a añadir al resultado. Si no se incluyen, se extraen de los datos.
-#' @return un dataframe con los datos límpios, el título sin puntos y con, al menos, una fila y 2 columnas.
-#' @export
-limpiarDatosDeHoja <- function(datos, titulos = NULL) {
-  if (dim(as.matrix(datos))[2] == 1) { # Sólo tiene una columna
-    datos <- as.data.frame(datos[!is.na(datos)])
-    # modifico datos para poder imprimirlo bien.
-    datos <- cbind(datos, datos)
-    titulos <- cbind(titulos, "")
-    if (dim(datos)[1] != 0) {
-      datos[, 2] <- NA
-    } else { # Cargo datos
-      datos[1, ] <- c("-", "")
-    }
-    colnames(datos) <- c(titulos)
-  } else { # Tiene más de una columna
-    datos <- as.data.frame(datos[!is.na(datos[, 1]), ])
-    if (dim(datos)[1] == 0) { # Cargo datos
-      datos[1, ] <- ""
-      datos[1, 1] <- "-"
-    }
-  }
-  if (is.null(titulos)) {
-    titulos <- colnames(datos)
-  }
-  titulos <- gsub("\\.", " ", titulos) # Limpieza
-  names(datos) <- titulos
-  return(datos)
-}
-
 
 # Eliminado. Esto no ha funcionado nunca nada bien.
 # #' getOutputFormat
