@@ -7,22 +7,37 @@
 extraerRutaDeWindows(path = "clipboard", copiarAPortaPapeles = TRUE)
 }
 \arguments{
-\item{path}{El texto de la variable que se quiere convertir. Por defecto, la cadena almacenada en el portapapeles.}
+\item{path}{El texto de la variable que se quiere convertir. Por defecto, la
+cadena almacenada en el portapapeles.}
 
-\item{copiarAPortaPapeles}{Indica si copiar, o no, el resultado al portapapeles. Por defecto, si.}
+\item{copiarAPortaPapeles}{Indica si copiar, o no, el resultado al
+portapapeles. Por defecto, si.}
 }
 \value{
 Una ruta compatible con R.
 }
 \description{
-Formatéa una ruta del sistema operativo Windows para que sea posible introducirla en un script de R sin necesidad e hacer cambios adicionales.
+Formatéa una ruta del sistema operativo Windows para que sea posible
+introducirla en un script de R sin necesidad e hacer cambios adicionales.
 }
 \details{
-Esta utilidad tiene un comportamiento especial: utiliza el contendio del portapapeles, por tanto, la ruta del dirctorio debe estar en el portapapeles.
+Esta utilidad tiene un comportamiento especial: utiliza el contendio del
+portapapeles, por tanto, la ruta del dirctorio debe estar en el portapapeles.
 Al ejecutrar esta función, se imprime la ruta en el formato que se necesita
 }
 \examples{
-extraerRutaDeWindows() #-> "G:/Unidades compartidas/EMPRESA/BBDD/JSON"
+\dontrun{
+clipr::write_clip("G:\u005cUnidades compartidas\u005cEMPRESA\u005cBBDD\u005cJSON",
+allow_non_interactive = TRUE)
+# Los caracteres unicode son barras invertidas. R es así. Es un caracter reservado
+clipr::read_clip()
+# Esto saca por pantalla la ruta escapada. Pero en el portapapeles se
+# almacena bien, con una sóla barra inclinada. R no puede impirmir esto
+# porque lo interpreta como escape de códigos unicode. (R va a tener que
+# mejorar este comportamiento, pero mientra y no ...)
+extraerRutaDeWindows(copiarAPortaPapeles = FALSE)
+#-> "G:/Unidades compartidas/EMPRESA/BBDD/JSON"
+}
 }
 \author{
 Jose Alejandro Morán Pérez

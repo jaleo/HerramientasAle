@@ -16,13 +16,13 @@ RoxygenNote: 7.1.2
 URL: https://github.com/jaleo/HerramientasAle
 BugReports: https://github.com/jaleo/HerramientasAle/issues
 Imports:
+    clipr,
     curl,
     DBI,
     grDevices,
     jsonlite,
     rio,
     rmarkdown,
-    RMySQL,
-    utils
+    RMySQL
 Suggests:
     datasets

@@ -4,10 +4,12 @@
 \alias{convertirRutaDeRaFormatoWindows}
 \title{convertirRutaDeRaFormatoWindows}
 \usage{
-convertirRutaDeRaFormatoWindows(path = "clipboard")
+convertirRutaDeRaFormatoWindows(path = "clipboard", copiarAPortaPapeles = TRUE)
 }
 \arguments{
 \item{path}{La ruta en formato R.}
+
+\item{copiarAPortaPapeles}{Indica si copiar, o no, el resultado al portapapeles. Por defecto, si.}
 }
 \value{
 Una ruta compatible con Windows.
@@ -20,7 +22,7 @@ Esta utilidad tiene un comportamiento especial: utiliza el contenido del portapa
 Al ejecutrar esta función, se imprime la ruta en el formato que se necesita
 }
 \examples{
-extraerRutaDeWindows("G:/Unidades compartidas/EMPRESA/BBDD/JSON")
+convertirRutaDeRaFormatoWindows("G:/Unidades compartidas/EMPRESA/BBDD/JSON", FALSE)
 #-> Produce: "G:\Unidades compartidas\EMPRESA\BBDD\JSON"
 # Si se quiere elimina la doble \ se debe imporimir este resultado con cat()
 }
