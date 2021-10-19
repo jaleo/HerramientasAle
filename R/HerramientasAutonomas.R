@@ -81,10 +81,11 @@ insertarTitulo <- function(titulo, nivel) {
 #' #          5.1         3.5
 #' #          4.9           0
 #' @export
-sustituirNAs <- function(datos, sustituto = "\u00b7") {
-  df <- format(datos)
-  df[is.na(datos)] <- sustituto
-  return(df)
+sustituirNAs <- function(datos, sustituto = '·'){
+  for(columna in  colnames(datos)){
+    datos[[columna]][is.na(datos[[columna]])] <- sustituto
+  }
+  return(datos)
 }
 
 #' imprimirNAs
