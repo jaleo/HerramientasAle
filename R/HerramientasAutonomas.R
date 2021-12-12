@@ -81,9 +81,13 @@ insertarTitulo <- function(titulo, nivel) {
 #' #          5.1         3.5
 #' #          4.9           0
 #' @export
-sustituirNAs <- function(datos, sustituto = '·'){
-  for(columna in  colnames(datos)){
-    datos[[columna]][is.na(datos[[columna]])] <- sustituto
+sustituirNAs <- function(datos, sustituto = '\u00b7'){
+  if(hay(colnames(datos))){
+    for(columna in  colnames(datos)){
+      datos[[columna]][is.na(datos[[columna]])] <- sustituto
+    }
+  }else{
+    datos[is.na(datos)] <- sustituto
   }
   return(datos)
 }
@@ -318,7 +322,7 @@ aDebug <- function(...) {
 #' }
 #' @export
 cuidado <- function(...) {
-  warning(paste0(...))
+  warning(paste0(...), call. = FALSE)
 }
 
 
