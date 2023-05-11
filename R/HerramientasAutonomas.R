@@ -8,6 +8,7 @@
 #' @source https://www.rforexcelusers.com/how-to-mid-right-left-r/
 #' @param text La cadena de caracteres.
 #' @param num_char Número de caracteres.
+#' @examples left("IZQUIERDACENTRODERECHA",9) #->"IZQUIERDA"
 #' @export
 left <- function(text, num_char) {
   text <- as.character(text)
@@ -22,6 +23,7 @@ left <- function(text, num_char) {
 #' @param text La cadena de caracteres
 #' @param start_num La posición inicial de la extracción.
 #' @param num_char Número de caracteres
+#' @examples mid("IZQUIERDACENTRODERECHA",10,6) #-> "CENTRO"
 #' @export
 mid <- function(text, start_num, num_char) {
   text <- as.character(text)
@@ -35,6 +37,7 @@ mid <- function(text, start_num, num_char) {
 #' @source https://www.rforexcelusers.com/how-to-mid-right-left-r/
 #' @param text La cadena de caracteres.
 #' @param num_char Número de caracteres.
+#' @examples right("IZQUIERDACENTRODERECHA", 7) #-> "DERECHA"
 #' @export
 right <- function(text, num_char) {
   text <- as.character(text)
@@ -347,12 +350,12 @@ tamagno <- function(objeto) {
 
 #' asegurarExistencia
 #'
-#' Comprueba si un archivo exixte en el sistema operativo o no.
+#' Comprueba si un archivo, o directorio, existe en el sistema operativo o no.
 #'
 #' Si no existe, informa de ello por consola. Si existe, informa por DEBUG.
 #' @author Jose Alejandro Morán Pérez
 #' @param archivo La ruta completa del archivo
-#' @param nombre El nombre con el que se quiere referir al archivo, si se omite se usará la ruta completa.
+#' @param nombre El nombre con el que se quiere referir al archivo, si se omite se usará la ruta completa. Si lo buscado es un directorio, conviene que el nombre comience con la palabra "directorio". Por ejemplo: "directorio Importante".
 #' @return TRUE o FALSE según exista, o no, el archivo.
 #' @examples
 #'  \dontrun{
@@ -362,12 +365,14 @@ tamagno <- function(objeto) {
 #' @export
 asegurarExistencia <- function(archivo, nombre = archivo) {
   resultado <- FALSE
-  if (!file.exists(archivo)) {
+  nombre_de_objeto <- "archivo "
+  if(left(nombre, 10) == "directorio") nombre_de_objeto <- ""
+  if (!file.exists(archivo) & !dir.exists(archivo)) {
     aSalida("******************************************************************")
-    aSalida("No existe el archivo ", nombre)
+    aSalida("No existe el ", nombre_de_objeto, nombre)
     aSalida("******************************************************************")
   } else {
-    aDebug("OK: se ha encontrado el archivo ", nombre)
+    aDebug("OK: se ha encontrado el ", nombre_de_objeto, nombre)
     resultado <- TRUE
   }
   return(resultado)
@@ -500,4 +505,31 @@ reemplazar.nas <- function(data) {
     }
   }
   return(data)
+}
+
+
+#' existe
+#'
+#' Comprueba si un objeto existe en memoria
+#' @author Jose Alejandro Morán Pérez
+#' @param objeto El nombre del objeto
+#' @return TRUE si existe, FALSE si no.
+#' @examples temporal3x3mpl0 <- "un objeto"
+#' existe(temporal3x3mpl0) #-> TRUE
+#' existe("temporal3x3mpl0") #-> TRUE
+#' rm(list = "temporal3x3mpl0")
+#' existe("temporal3x3mpl0") #-> FALSE
+#' @export
+existe <- function(objeto){
+  # ob <- deparse(substitute(objeto))
+  if(as.character(objeto) %in% ls(envir = sys.frame())){
+    return(TRUE)
+  }else{
+    ob <- deparse(substitute(objeto))
+    if(as.character(ob) %in% ls(envir = sys.frame())){
+      return(TRUE)
+    }else{
+      return(FALSE)
+    }
+  }
 }

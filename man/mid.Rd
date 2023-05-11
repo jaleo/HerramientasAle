@@ -19,6 +19,9 @@ mid(text, start_num, num_char)
 \description{
 Extrae la parte central de una cadena de caracteres
 }
+\examples{
+mid("IZQUIERDACENTRODERECHA",10,6) #-> "CENTRO"
+}
 \author{
 Jose Alejandro Morán Pérez
 }

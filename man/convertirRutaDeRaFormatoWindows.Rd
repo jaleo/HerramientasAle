@@ -24,7 +24,7 @@ Al ejecutrar esta función, se imprime la ruta en el formato que se necesita
 \examples{
 convertirRutaDeRaFormatoWindows("G:/Unidades compartidas/EMPRESA/BBDD/JSON", FALSE)
 #-> Produce: "G:\Unidades compartidas\EMPRESA\BBDD\JSON"
-# Si se quiere elimina la doble \ se debe imporimir este resultado con cat()
+# Si se quiere elimina la doble \ se debe imprimir este resultado con cat()
 }
 \author{
 Jose Alejandro Morán Pérez

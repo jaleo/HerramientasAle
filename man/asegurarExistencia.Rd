@@ -9,13 +9,13 @@ asegurarExistencia(archivo, nombre = archivo)
 \arguments{
 \item{archivo}{La ruta completa del archivo}
 
-\item{nombre}{El nombre con el que se quiere referir al archivo, si se omite se usará la ruta completa.}
+\item{nombre}{El nombre con el que se quiere referir al archivo, si se omite se usará la ruta completa. Si lo buscado es un directorio, conviene que el nombre comience con la palabra "directorio". Por ejemplo: "directorio Importante".}
 }
 \value{
 TRUE o FALSE según exista, o no, el archivo.
 }
 \description{
-Comprueba si un archivo exixte en el sistema operativo o no.
+Comprueba si un archivo, o directorio, existe en el sistema operativo o no.
 }
 \details{
 Si no existe, informa de ello por consola. Si existe, informa por DEBUG.

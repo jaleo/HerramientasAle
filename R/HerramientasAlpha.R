@@ -1,4 +1,4 @@
-# Contien funciones en estado alpha: no funcionan muy bien.
+# Contiene funciones en estado alpha: no funcionan muy bien.
 
 
 # Eliminado. Esto no ha funcionado nunca nada bien.

@@ -17,6 +17,9 @@ right(text, num_char)
 \description{
 Extrae la parte derecha de una cadena de caracteres
 }
+\examples{
+right("IZQUIERDACENTRODERECHA", 7) #-> "DERECHA"
+}
 \author{
 Jose Alejandro Morán Pérez
 }

@@ -68,7 +68,7 @@ guardar_tsv_utf8_con_bom <- function(datos, nombre_fichero) {
   writeBin(BOM, con, endian = "little")
   close(con)
   con <- file(nombre_fichero, encoding = "UTF-8", "a")
-  rio::export(datos, file = con, format = "tsv", quote = F, na = "")
+  suppressMessages(rio::export(datos, file = con, format = "tsv", quote = F, na = ""))
   close(con)
 }
 
@@ -146,7 +146,7 @@ extraerRutaDeWindows <- function(path = "clipboard", copiarAPortaPapeles = TRUE)
 #' @return Una ruta compatible con Windows.
 #' @examples convertirRutaDeRaFormatoWindows("G:/Unidades compartidas/EMPRESA/BBDD/JSON", FALSE)
 #' #-> Produce: "G:\Unidades compartidas\EMPRESA\BBDD\JSON"
-#' # Si se quiere elimina la doble \ se debe imporimir este resultado con cat()
+#' # Si se quiere elimina la doble \ se debe imprimir este resultado con cat()
 #' @export
 convertirRutaDeRaFormatoWindows <- function(path = "clipboard", copiarAPortaPapeles = TRUE) {
   #REM #' @importFrom utils readClipboard writeClipboard
