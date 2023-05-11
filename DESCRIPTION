@@ -1,7 +1,7 @@
 Package: HerramientasAle
 Type: Package
 Title: Herramientas de Alejandro
-Version: 0.1.1.4
+Version: 0.1.2
 Author: Jose Alejandro Morán Pérez
 Authors@R: person("Jose Alejandro", "Morán Pérez", email = "jaleomp@gmail.com",  role = c("aut", "cre"))
 Maintainer: Jose Alejandro Morán Pérez <jaleomp@gmail.com>
